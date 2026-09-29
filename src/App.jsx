@@ -120,7 +120,7 @@ function Hero() {
       <div className="hero-visual">
         <div className="photo-topline eyebrow"><span>A BUILDER AT HEART</span><span>PH / 01</span></div>
         <div className="portrait-frame">
-          <img src={portrait} alt="Kier Daryl Abiad" width="1363" height="1469" fetchPriority="high" />
+          <img src={portrait} alt="Kier Daryl Abiad" width="718" height="814" fetchPriority="high" />
           <div className="portrait-grain" />
           <div className="portrait-caption"><span>Kier Daryl Abiad</span><span>Software & AI Engineer</span></div>
           <div className="portrait-corner" aria-hidden="true"><Icon size={36} /></div>
