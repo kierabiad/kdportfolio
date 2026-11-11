@@ -6,6 +6,13 @@ export const profile = {
   resume: '/Abiad_KierDaryl_RESUME.pdf',
 };
 
+export const heroFacts = [
+  { label: 'Based in', value: 'Imus City, Cavite, Philippines' },
+  { label: 'Focus', value: 'Backend, full-stack & AI' },
+  { label: 'Core stack', value: 'Python, Django, React, Docker' },
+  { label: 'Education', value: 'BS Computer Science, T.I.P. Manila' },
+];
+
 export const experience = [
   {
     company: 'MIND YOU',
@@ -63,12 +70,12 @@ export const experience = [
 ];
 
 export const skillGroups = [
-  { name: 'Languages', icon: 'code', items: ['Python', 'JavaScript', 'Java', 'C', 'C++', 'C#', 'SQL'] },
-  { name: 'Web & frameworks', icon: 'window', items: ['Django', 'React', 'Next.js', 'Laravel', 'Celery', 'REST API'] },
-  { name: 'Databases', icon: 'database', items: ['PostgreSQL', 'MySQL', 'Redis', 'Firebase', 'SQLite'] },
-  { name: 'Cloud & DevOps', icon: 'cloud', items: ['Docker', 'Git / GitHub', 'Vercel', 'Railway', 'AWS (Foundations)'] },
-  { name: 'AI & data', icon: 'spark', items: ['TensorFlow', 'OpenCV', 'scikit-learn', 'NumPy', 'Pandas', 'Matplotlib'] },
-  { name: 'AI tooling', icon: 'terminal', items: ['MCP', 'OpenRouter', 'Qdrant', 'GitHub Copilot', 'Google Colab'] },
+  { name: 'Languages', items: ['Python', 'JavaScript', 'Java', 'C', 'C++', 'C#', 'SQL'] },
+  { name: 'Web & frameworks', items: ['Django', 'React', 'Next.js', 'Laravel', 'Celery', 'REST API'] },
+  { name: 'Databases', items: ['PostgreSQL', 'MySQL', 'Redis', 'Firebase', 'SQLite'] },
+  { name: 'Cloud & DevOps', items: ['Docker', 'Git / GitHub', 'Vercel', 'Railway', 'AWS (Foundations)'] },
+  { name: 'AI & data', items: ['TensorFlow', 'OpenCV', 'scikit-learn', 'NumPy', 'Pandas', 'Matplotlib'] },
+  { name: 'AI tooling', items: ['MCP', 'OpenRouter', 'Qdrant', 'GitHub Copilot', 'Google Colab'] },
 ];
 
 export const projects = [

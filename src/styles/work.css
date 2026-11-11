@@ -1,0 +1,123 @@
+/* Work: featured project, migration diagram, and monochrome project art. */
+
+.featured-project {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+  padding: clamp(24px, 4vw, 56px);
+  border: 1px solid var(--line);
+  background: var(--bg-raised);
+}
+.project-kicker { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.project-kicker > span:first-child { color: var(--ink); }
+.featured-copy h3 { margin: 24px 0 20px; font-size: clamp(2.25rem, 3.8vw, 3.5rem); line-height: 1.02; }
+.featured-copy > p { max-width: 28rem; color: var(--muted); }
+.project-metrics { display: flex; flex-wrap: wrap; gap: 24px 48px; margin-block: 32px; }
+.project-metrics strong { display: block; font-family: var(--font-serif); font-size: 3.25rem; font-weight: 400; line-height: 1; letter-spacing: -0.02em; }
+.project-metrics span { font-size: 0.875rem; color: var(--muted); }
+
+/* Migration diagram */
+.migration-visual {
+  padding: 24px;
+  border: 1px solid var(--line);
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--line-strong) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.diagram-caption { display: flex; justify-content: space-between; gap: 12px; }
+.migration-flow { display: flex; align-items: stretch; justify-content: center; gap: 8px; padding-block: 40px; }
+.flow-node, .flow-engine {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 8px;
+  border: 1px solid var(--line-strong);
+  background: var(--bg);
+  text-align: center;
+}
+.flow-engine { border-color: var(--ink); }
+.flow-node > span, .flow-engine > span { font-size: 0.875rem; font-weight: 500; }
+.flow-node small, .flow-engine small { font-size: 0.75rem; line-height: 1.4; color: var(--faint); }
+.flow-mark { display: grid; place-items: center; width: 40px; height: 40px; font-family: var(--font-serif); font-size: 2.25rem; line-height: 1; }
+.chat-mark { width: 40px; height: 40px; }
+.chat-mark path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
+.flow-connector { display: flex; align-items: center; align-self: center; flex: 0 0 36px; color: var(--faint); }
+.flow-connector > span { flex: 1; border-top: 1px dashed currentColor; }
+.migration-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-strong);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.migration-result > span:first-child { display: inline-flex; align-items: center; gap: 8px; }
+.migration-result > span:last-child { font-family: var(--font-serif); font-size: 1.5rem; line-height: 1; color: var(--ink); }
+.diagram-note { display: block; margin-top: 16px; font-size: 0.75rem; color: var(--faint); }
+
+/* Project grid */
+.project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 32px; }
+.project-description { padding-top: 24px; }
+.project-description h3 { margin-block: 16px 8px; font-size: clamp(1.75rem, 2.4vw, 2.125rem); line-height: 1.1; }
+.project-subtitle { margin-bottom: 12px; font-size: 0.9375rem; font-weight: 500; }
+.project-description > p:not(.project-subtitle, .project-tech) { color: var(--muted); font-size: 0.9375rem; }
+.project-tech { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 0.8125rem; color: var(--faint); }
+
+/* Monochrome project art — pure CSS/SVG, theme-aware */
+.project-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+  background-color: var(--bg-raised);
+  background-image: radial-gradient(var(--line-strong) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.art-svg { width: 46%; height: auto; }
+.art-svg path { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+.art-svg path.art-fill { fill: color-mix(in srgb, var(--ink) 8%, transparent); }
+.art-svg path.art-detail { stroke: var(--faint); }
+.art-label { position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; font-size: 0.6875rem; }
+.art-corner { position: absolute; width: 22px; height: 22px; border: 0 solid var(--faint); }
+.art-corner-tl { top: 22px; left: 22px; border-width: 1px 0 0 1px; }
+.art-corner-br { right: 22px; bottom: 40px; border-width: 0 1px 1px 0; }
+
+.auth-window { width: 74%; border: 1px solid var(--line-strong); background: var(--bg); }
+.window-bar { display: flex; align-items: center; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.window-bar i { width: 7px; height: 7px; border: 1px solid var(--faint); border-radius: 50%; }
+.window-bar span { margin-left: auto; font-family: var(--font-mono); font-size: 0.6875rem; color: var(--faint); }
+.auth-code { display: flex; flex-direction: column; gap: 8px; padding: 16px 14px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+.auth-code b { margin-right: 6px; font-weight: 400; color: var(--ink); }
+.auth-status { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-top: 1px solid var(--line); font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
+.auth-status .status-dot { width: 6px; height: 6px; }
+
+.shop-word { position: absolute; top: 24px; left: 24px; z-index: 1; font-family: var(--font-serif); font-size: 1.5rem; line-height: 1.05; }
+.shop-word em { display: block; font-size: 2.25rem; color: var(--muted); }
+.shop-art .art-svg { position: absolute; right: 6%; bottom: 8%; width: 40%; transform: rotate(10deg); }
+.shop-art .art-label { left: 24px; right: auto; bottom: 18px; }
+
+@media (max-width: 960px) {
+  .featured-project { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 860px) {
+  .project-grid { grid-template-columns: 1fr; gap: 48px; }
+  .art-svg { width: 34%; }
+  .shop-art .art-svg { width: 30%; }
+}
+
+@media (max-width: 560px) {
+  .migration-flow { flex-direction: column; padding-block: 28px; }
+  .flow-node, .flow-engine { flex: none; flex-direction: row; justify-content: center; gap: 14px; padding: 14px; }
+  .flow-node small, .flow-engine small { display: none; }
+  .flow-mark, .chat-mark { width: 32px; height: 32px; font-size: 1.75rem; }
+  .flow-connector { flex: none; flex-direction: column; height: 32px; }
+  .flow-connector > span { border-top: 0; border-left: 1px dashed currentColor; }
+  .flow-connector svg { transform: rotate(90deg); }
+}

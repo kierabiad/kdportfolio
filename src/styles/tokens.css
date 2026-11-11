@@ -1,0 +1,73 @@
+/*
+ * Design tokens — strict black & white.
+ * Dark is the default; light is an opt-in inverse (see hooks/useTheme.js).
+ * Text pairs are tuned for WCAG AA (>= 4.5:1) in both themes.
+ */
+:root {
+  color-scheme: dark;
+
+  --bg: #0a0a0a;
+  --bg-raised: #121212;
+  --ink: #f4f4f4;
+  --muted: #a3a3a3;
+  --faint: #8a8a8a;
+  --line: #262626;
+  --line-strong: #404040;
+  --glow: rgb(255 255 255 / 0.08);
+
+  /* Studio backdrop the portrait is multiplied onto */
+  --backdrop-lit: #8f8f8f;
+  --backdrop-shade: #161616;
+
+  /* Inverted slab (contact + footer) */
+  --invert-bg: #f4f4f4;
+  --invert-ink: #0a0a0a;
+  --invert-muted: #525252;
+  --invert-line: #cfcfcf;
+
+  --font-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --gutter: clamp(20px, 5vw, 56px);
+  --measure: 1200px;
+  --space-section: clamp(80px, 11vw, 150px);
+  --header-height: 72px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 160ms;
+  --duration-normal: 360ms;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #fafafa;
+  --bg-raised: #f0f0f0;
+  --ink: #0a0a0a;
+  --muted: #525252;
+  --faint: #666666;
+  --line: #e0e0e0;
+  --line-strong: #c4c4c4;
+  --glow: rgb(0 0 0 / 0.05);
+
+  --backdrop-lit: #f2f2f2;
+  --backdrop-shade: #b9b9b9;
+
+  --invert-bg: #0a0a0a;
+  --invert-ink: #f4f4f4;
+  --invert-muted: #a3a3a3;
+  --invert-line: #2c2c2c;
+}
+
+/* Re-map the palette inside an inverted ".slab" so every component just works. */
+.slab {
+  --bg: var(--invert-bg);
+  --ink: var(--invert-ink);
+  --muted: var(--invert-muted);
+  --faint: var(--invert-muted);
+  --line: var(--invert-line);
+  --line-strong: var(--invert-line);
+  background: var(--bg);
+  color: var(--ink);
+}
