@@ -1,10 +1,8 @@
-// Dark is the default. Apply a saved light preference before first paint.
-// Keep the light colour in sync with THEME_COLORS in src/hooks/useTheme.js.
+// Set the saved theme before first paint. Unknown names use the default CSS
+// palette and are reset to Light when React initializes.
 try {
-  if (localStorage.getItem('theme') === 'light') {
-    document.documentElement.dataset.theme = 'light';
-    document.querySelector('meta[name="theme-color"]').content = '#fafafa';
-  }
+  const saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.dataset.theme = saved;
 } catch {
-  // Privacy settings may block storage; the default dark theme is still fully usable.
+  // Storage is optional.
 }

@@ -1,32 +1,35 @@
-import { useCallback, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 const STORAGE_KEY = 'theme';
-// Keep in sync with --bg in styles/tokens.css and public/theme-init.js.
-const THEME_COLORS = { dark: '#0a0a0a', light: '#fafafa' };
+export const THEMES = [
+  'Light', 'Dark', 'Nord', 'Forest', 'Coffee', 'Dracula',
+  'Cupcake', 'Corporate', 'Emerald', 'Retro', 'Synthwave', 'Luxury', 'Winter', 'Night',
+].map(label => ({ label, id: label.toLowerCase() }));
 
 function readTheme() {
-  return document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+  const saved = document.documentElement.dataset.theme;
+  return THEMES.find(option => option.id === saved)?.id ?? 'light';
 }
 
-/**
- * Dark is the default. The choice is applied to <html data-theme> and, when
- * storage is available, remembered for the next visit.
- * @returns {{ theme: 'dark' | 'light', toggleTheme: () => void }}
- */
 export default function useTheme() {
   const [theme, setTheme] = useState(readTheme);
 
-  const toggleTheme = useCallback(() => {
-    const next = theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.dataset.theme = next;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', THEME_COLORS[next]);
+  useLayoutEffect(() => {
+    const root = document.documentElement;
+    root.dataset.theme = theme;
+    const background = getComputedStyle(root).getPropertyValue('--bg').trim();
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', background);
+  }, [theme]);
+
+  function selectTheme(next) {
+    if (!THEMES.some(option => option.id === next)) return;
+    setTheme(next);
     try {
       localStorage.setItem(STORAGE_KEY, next);
     } catch {
       // Storage is optional; the theme still changes for the current page.
     }
-    setTheme(next);
-  }, [theme]);
+  }
 
-  return { theme, toggleTheme };
+  return { theme, selectTheme };
 }
